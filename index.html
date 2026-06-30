@@ -645,13 +645,15 @@
             border: 1px solid rgba(201, 168, 113, 0.15);
         }
 
-        .service-card {
+.service-card {
             background: rgba(26, 21, 16, 0.9);
             padding: 0;
             position: relative;
             overflow: hidden;
             transition: background 0.3s ease;
             cursor: default;
+            display: flex;
+            flex-direction: column;
         }
 
         .service-img {
@@ -672,8 +674,11 @@
             transform: scale(1.05);
         }
 
-        .service-card-body {
+.service-card-body {
             padding: 36px 36px 40px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
 
         .service-card::before {
@@ -713,27 +718,38 @@
             margin-bottom: 12px;
             line-height: 1.2;
         }
-
-        .service-desc {
+.service-desc {
             font-size: 15px;
             font-weight: 300;
             font-style: italic;
             color: rgba(255, 252, 247, 0.45);
             line-height: 1.7;
-            margin-bottom: 28px;
+            margin-bottom: 0;
+            flex: 1;
         }
 
-        .service-price {
-            font-size: 20px;
-            font-weight: 600;
+.service-price {
+            font-size: 11px;
+            font-weight: 300;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            line-height: 1.9;
             color: var(--gold-light);
+            display: block;
+            margin-top: 24px;
+            border-top: 1px solid rgba(201,168,113,.15);
+            padding-top: 16px;
+            flex-shrink: 0;
         }
 
         .service-price span {
-            font-size: 13px;
+            display: block;
+            font-size: 11px;
             font-weight: 300;
-            color: rgba(201, 168, 113, 0.5);
-            margin-left: 4px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            line-height: 1.9;
+            color: rgba(201,168,113,.55);
         }
 
         /* GALLERY */
@@ -1292,7 +1308,7 @@
             }
 
             .service-price {
-                font-size: 16px;
+                font-size: 11px;
             }
 
             .services-header {
@@ -1550,20 +1566,20 @@
                             loading="lazy"></div>
                     <div class="service-card-body">
                         <div class="service-num">01</div>
-                        <div class="service-name">Mega Volume<br>Full Set</div>
+                        <div class="service-name">Mega Volume</div>
                         <p class="service-desc">Our most dramatic and luxurious set, crafted with 8D pre-made fans for
                             maximum fullness and impact.</p>
-                        <div class="service-price">$75 - $250</div>
+                        <div class="service-price">Full Sets from $120<span>Refills from $75</span></div>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-img"><img src="service-volume.jpg" alt="Volume Full Set" loading="lazy"></div>
                     <div class="service-card-body">
                         <div class="service-num">02</div>
-                        <div class="service-name">Volume<br>Full Set</div>
+                        <div class="service-name">Volume</div>
                         <p class="service-desc">Fluffy, full and beautiful, finished with 5D fans for a classic volume
                             look that speaks for itself.</p>
-                        <div class="service-price">$65 - $230</div>
+                        <div class="service-price">Full Sets from $100<span>Refills from $65</span></div>
                     </div>
                 </div>
                 <div class="service-card">
@@ -1571,10 +1587,10 @@
                             loading="lazy"></div>
                     <div class="service-card-body">
                         <div class="service-num">03</div>
-                        <div class="service-name">Natural Hybrid<br>Full Set</div>
+                        <div class="service-name">Natural Hybrid</div>
                         <p class="service-desc">Soft, wispy perfection using 3D fans for a natural, glamorous look that
                             enhances your eye shape.</p>
-                        <div class="service-price">$55 - $220</div>
+                        <div class="service-price">Full Sets from $90<span>Refills from $55</span></div>
                     </div>
                 </div>
                 <div class="service-card">
@@ -1584,7 +1600,7 @@
                         <div class="service-name">Lash<br>Removal</div>
                         <p class="service-desc">Safe, gentle professional removal with a full lash health assessment and
                             expert care.</p>
-                        <div class="service-price">$40 - $50</div>
+                        <div class="service-price">From $40</div>
                     </div>
                 </div>
                 <div class="service-card">
