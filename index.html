@@ -1,0 +1,1936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lashmama™ · Lashes, Hair & Makeup Adelaide</title>
+    <meta name="description"
+        content="Lashmama™ is a premium lash salon and academy in Mawson Lakes, South Australia, offering award-winning eyelash extensions, bridal hair and makeup. Book online with Purni.">
+    <meta property="og:title" content="Lashmama™ · Lashes, Hair & Makeup Salon, Mawson Lakes">
+    <meta property="og:description"
+        content="Premium lash extensions, award-winning hair and makeup in Mawson Lakes, South Australia. Book your appointment with Lashmama™ today.">
+    <meta property="og:type" content="business.business">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --gold-light: #C9A871;
+            --gold-base: #B8935A;
+            --gold-dark: #8B6914;
+            --cream: #FFFCF7;
+            --cream-warm: #FAF5ED;
+            --cream-deep: #F5EFE6;
+            --border-gold: #E8D5B0;
+            --text-dark: #2A2218;
+            --text-body: #5A4A38;
+            --text-muted: #7A6B55;
+            --text-subtle: #A69B8A;
+            --near-black: #1A1510;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--cream);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 300;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 48px;
+            background: rgba(26, 21, 16, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(201, 168, 113, 0.15);
+            transition: transform 0.35s ease, padding 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        nav.nav-hidden {
+            transform: translateY(-100%);
+        }
+
+        .nav-logo {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--near-black);
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: var(--gold-base);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: rgba(255, 252, 247, 0.65);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-base);
+        }
+
+        .nav-book-btn {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: white !important;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-base));
+            padding: 12px 28px;
+            border-radius: 2px;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .nav-book-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* HAMBURGER */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 200;
+            position: relative;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: var(--gold-light);
+            transition: transform 0.35s ease, opacity 0.25s ease, background 0.35s ease;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(6.5px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-6.5px) rotate(-45deg);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            background: var(--near-black);
+            z-index: 150;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-12px);
+            transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+        }
+
+        .mobile-menu.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .mobile-menu::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 30%, rgba(201, 168, 113, 0.08), transparent 60%);
+            pointer-events: none;
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+        }
+
+        .mobile-menu-links a {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 30px;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--cream);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.2s ease;
+        }
+
+        .mobile-menu-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .mobile-menu-book {
+            margin-top: 44px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--near-black) !important;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-base));
+            padding: 16px 44px;
+            border-radius: 2px;
+            text-decoration: none;
+            font-style: normal !important;
+        }
+
+        .mobile-menu-divider {
+            width: 32px;
+            height: 1px;
+            background: rgba(201, 168, 113, 0.3);
+            margin: 36px 0;
+        }
+
+        body.menu-locked {
+            overflow: hidden;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: var(--near-black);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(26, 21, 16, 0.3) 0%, rgba(26, 21, 16, 0.7) 60%, rgba(26, 21, 16, 0.95) 100%),
+                url('hero-desktop.jpg') center/cover no-repeat;
+        }
+
+        .hero-bg-placeholder {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #1A1510 0%, #2A2218 30%, #3D2E1E 60%, #2A2218 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 24px;
+            max-width: 900px;
+        }
+
+        .hero-eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            white-space: nowrap;
+        }
+
+        .hero-eyebrow::before,
+        .hero-eyebrow::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 1px;
+            background: var(--gold-light);
+            opacity: 0.6;
+            flex-shrink: 0;
+        }
+
+        .hero-title {
+            font-size: clamp(64px, 10vw, 120px);
+            font-weight: 300;
+            line-height: 0.95;
+            color: #FFFCF7;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+        }
+
+        @media (min-width: 901px) {
+            .hero-title {
+                margin-bottom: 30px;
+            }
+        }
+
+        .hero-title em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--gold-light);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(13px, 2vw, 18px);
+            font-weight: 300;
+            font-style: italic;
+            color: rgba(255, 252, 247, 0.6);
+            margin-bottom: 52px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--near-black);
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-base));
+            padding: 16px 40px;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            opacity: 0.92;
+        }
+
+        .btn-ghost {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: rgba(255, 252, 247, 0.8);
+            border: 1px solid rgba(201, 168, 113, 0.4);
+            padding: 16px 40px;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--gold-light);
+            color: var(--gold-light);
+        }
+
+        /* MARQUEE */
+        .marquee-wrap {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-base), var(--gold-dark));
+            padding: 14px 0;
+            overflow: hidden;
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 0;
+            animation: marquee 20s linear infinite;
+            white-space: nowrap;
+        }
+
+        .marquee-item {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 252, 247, 0.9);
+            padding: 0 32px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .marquee-dot {
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 252, 247, 0.5);
+            border-radius: 50%;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 120px 48px;
+        }
+
+        .section-eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold-base);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: clamp(40px, 5vw, 64px);
+            font-weight: 300;
+            line-height: 1.05;
+            color: var(--near-black);
+            margin-bottom: 24px;
+        }
+
+        .section-title em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--gold-dark);
+        }
+
+        .section-body {
+            font-size: 17px;
+            font-weight: 300;
+            line-height: 1.8;
+            color: var(--text-muted);
+            max-width: 560px;
+        }
+
+        /* ABOUT */
+        .about {
+            background: var(--cream);
+        }
+
+        .about-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-img-frame {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: var(--cream-deep);
+            border: 1px solid var(--border-gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-img-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-img-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--cream-deep), var(--cream-warm));
+        }
+
+        .about-img-placeholder-text {
+            font-size: 13px;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-subtle);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .about-accent {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-base));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-accent-text {
+            font-size: 11px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: white;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: var(--border-gold);
+            margin-top: 48px;
+            border: 1px solid var(--border-gold);
+        }
+
+        .about-stat {
+            background: var(--cream);
+            padding: 28px 24px;
+            text-align: center;
+        }
+
+        a.about-stat {
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .about-stat-google {
+            background: linear-gradient(135deg, rgba(201, 168, 113, 0.12), rgba(201, 168, 113, 0.04));
+            border: 1px solid var(--gold-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            position: relative;
+        }
+
+        .about-stat-google:hover {
+            background: linear-gradient(135deg, rgba(201, 168, 113, 0.2), rgba(201, 168, 113, 0.08));
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 105, 20, 0.18);
+        }
+
+        .about-stat-google .about-stat-label {
+            color: var(--gold-dark);
+            font-weight: 600;
+        }
+
+        .about-stat-google-arrow {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold-base);
+            margin-top: 2px;
+        }
+
+        .about-stat-google-icon {
+            width: 26px;
+            height: 26px;
+            margin: 0 auto 2px;
+            display: block;
+        }
+
+        .about-stat-num {
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--gold-dark);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .about-stat-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-subtle);
+        }
+
+        /* SERVICES */
+        .services {
+            background: var(--near-black);
+            color: var(--cream);
+        }
+
+        .services-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services .section-eyebrow {
+            color: var(--gold-light);
+        }
+
+        .services .section-title {
+            color: var(--cream);
+        }
+
+        .services .section-title em {
+            color: var(--gold-light);
+        }
+
+        .services-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 64px;
+            gap: 40px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: rgba(201, 168, 113, 0.15);
+            border: 1px solid rgba(201, 168, 113, 0.15);
+        }
+
+        .service-card {
+            background: rgba(26, 21, 16, 0.9);
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s ease;
+            cursor: default;
+        }
+
+        .service-img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-img img {
+            transform: scale(1.05);
+        }
+
+        .service-card-body {
+            padding: 36px 36px 40px;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201, 168, 113, 0.5), transparent);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            z-index: 2;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            background: rgba(42, 34, 24, 0.95);
+        }
+
+        .service-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            color: rgba(201, 168, 113, 0.4);
+            margin-bottom: 20px;
+        }
+
+        .service-name {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--cream);
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .service-desc {
+            font-size: 15px;
+            font-weight: 300;
+            font-style: italic;
+            color: rgba(255, 252, 247, 0.45);
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .service-price {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--gold-light);
+        }
+
+        .service-price span {
+            font-size: 13px;
+            font-weight: 300;
+            color: rgba(201, 168, 113, 0.5);
+            margin-left: 4px;
+        }
+
+        /* GALLERY */
+        .gallery {
+            background: var(--cream-warm);
+            padding: 120px 48px;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            gap: 12px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            aspect-ratio: 3/4;
+            background: var(--cream-deep);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            border: 1px solid var(--border-gold);
+        }
+
+        .gallery-item:first-child {
+            grid-row: span 2;
+            aspect-ratio: auto;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.04);
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            min-height: 200px;
+            background: linear-gradient(135deg, var(--cream-deep), var(--cream-warm));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-placeholder-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-subtle);
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(26, 21, 16, 0.7) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 24px;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+        }
+
+        /* SHOP */
+        .shop {
+            background: var(--cream);
+            padding: 120px 48px;
+        }
+
+        .shop-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .shop-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 56px;
+            gap: 40px;
+        }
+
+        .shop-link-all {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-base);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            transition: gap 0.2s ease;
+        }
+
+        .shop-link-all:hover {
+            gap: 12px;
+        }
+
+        .shop-link-all::after {
+            content: '→';
+            font-size: 14px;
+        }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .shop-card {
+            background: var(--cream-warm);
+            border: 1px solid var(--border-gold);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .shop-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(139, 105, 20, 0.12);
+        }
+
+        .shop-img {
+            aspect-ratio: 1;
+            background: var(--cream-deep);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .shop-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .shop-card:hover .shop-img img {
+            transform: scale(1.06);
+        }
+
+        .shop-img-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #F0E8D8, var(--cream-deep));
+        }
+
+        .shop-img-icon {
+            width: 40px;
+            height: 40px;
+            opacity: 0.3;
+        }
+
+        .shop-info {
+            padding: 20px 20px 24px;
+        }
+
+        .shop-tag {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-base);
+            margin-bottom: 8px;
+        }
+
+        .shop-name {
+            font-size: 17px;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .shop-price {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gold-dark);
+        }
+
+        /* BOOKING CTA */
+        .booking-cta {
+            background: linear-gradient(135deg, #1A1510 0%, #2A2218 50%, #1A1510 100%);
+            padding: 120px 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .booking-cta::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1200px;
+            max-width: 90vw;
+            height: 400px;
+            background: url('logo-watermark.png') center/contain no-repeat;
+            opacity: 0.06;
+            pointer-events: none;
+        }
+
+        .booking-cta-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .booking-cta .section-eyebrow {
+            color: var(--gold-light);
+            margin-bottom: 24px;
+        }
+
+        .booking-cta-title {
+            font-size: clamp(44px, 6vw, 72px);
+            font-weight: 300;
+            color: var(--cream);
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .booking-cta-title em {
+            font-style: italic;
+            color: var(--gold-light);
+        }
+
+        .booking-cta-sub {
+            font-size: 16px;
+            font-weight: 300;
+            font-style: italic;
+            color: rgba(255, 252, 247, 0.45);
+            margin-bottom: 52px;
+            line-height: 1.7;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            background: var(--cream-warm);
+            padding: 120px 48px;
+        }
+
+        .testimonials-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 72px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .testimonial-card {
+            background: var(--cream);
+            border: 1px solid var(--border-gold);
+            padding: 40px 36px;
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--gold-light);
+            line-height: 0.5;
+            margin-bottom: 20px;
+            opacity: 0.4;
+        }
+
+        .testimonial-text {
+            font-size: 17px;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--text-body);
+            line-height: 1.8;
+            margin-bottom: 28px;
+        }
+
+        .testimonial-stars {
+            color: var(--gold-base);
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .testimonials-more {
+            display: flex;
+            justify-content: center;
+            margin-top: 56px;
+        }
+
+        .testimonials-more-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            text-decoration: none;
+            background: var(--cream);
+            border: 1px solid var(--border-gold);
+            padding: 18px 34px;
+            border-radius: 2px;
+            transition: all 0.25s ease;
+        }
+
+        .testimonials-more-link:hover {
+            border-color: var(--gold-base);
+            background: var(--cream-deep);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 36px rgba(139, 105, 20, 0.14);
+        }
+
+        .testimonials-more-icon {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .testimonials-more-arrow {
+            color: var(--gold-base);
+            font-size: 13px;
+            transition: transform 0.25s ease;
+        }
+
+        .testimonials-more-link:hover .testimonials-more-arrow {
+            transform: translateX(4px);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--near-black);
+            padding: 80px 48px 40px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(201, 168, 113, 0.15);
+            margin-bottom: 40px;
+        }
+
+        .footer-brand-name {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--cream);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-brand-name span {
+            color: var(--gold-base);
+        }
+
+        .footer-tagline {
+            font-size: 14px;
+            font-style: italic;
+            font-weight: 300;
+            color: rgba(255, 252, 247, 0.35);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .footer-address {
+            font-size: 13px;
+            font-weight: 300;
+            color: rgba(255, 252, 247, 0.35);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(201, 168, 113, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .footer-social:hover {
+            border-color: var(--gold-base);
+            background: rgba(201, 168, 113, 0.1);
+        }
+
+        .footer-social svg {
+            width: 16px;
+            height: 16px;
+            fill: rgba(201, 168, 113, 0.6);
+            transition: fill 0.2s ease;
+        }
+
+        .footer-social:hover svg {
+            fill: var(--gold-base);
+        }
+
+        .footer-col-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 24px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            font-weight: 300;
+            color: rgba(255, 252, 247, 0.4);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .footer-copy {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            color: rgba(255, 252, 247, 0.2);
+        }
+
+        .footer-gold-line {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold-light), var(--gold-base));
+        }
+
+        /* MOBILE */
+        @media (max-width: 900px) {
+            nav {
+                padding: 16px 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            section {
+                padding: 80px 24px;
+            }
+
+            .about-inner {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .about-accent {
+                display: none;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .service-card-body {
+                padding: 22px 18px 26px;
+            }
+
+            .service-name {
+                font-size: 18px;
+            }
+
+            .service-desc {
+                font-size: 13px;
+                margin-bottom: 18px;
+            }
+
+            .service-price {
+                font-size: 16px;
+            }
+
+            .services-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .gallery {
+                padding: 60px 24px;
+            }
+
+            .gallery-header {
+                margin-bottom: 36px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .gallery-item,
+            .gallery-item:first-child {
+                grid-row: auto;
+                aspect-ratio: 1;
+            }
+
+            .shop {
+                padding: 80px 24px;
+            }
+
+            .shop-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .shop-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .testimonials {
+                padding: 60px 24px;
+            }
+
+            .testimonials-header {
+                margin-bottom: 36px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .testimonial-card {
+                padding: 24px 22px;
+            }
+
+            .testimonial-quote {
+                font-size: 36px;
+                margin-bottom: 10px;
+            }
+
+            .testimonial-text {
+                font-size: 15px;
+                margin-bottom: 16px;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .booking-cta {
+                padding: 80px 24px;
+            }
+
+            .hero-bg {
+                background-image: linear-gradient(180deg, rgba(26, 21, 16, 0.3) 0%, rgba(26, 21, 16, 0.7) 60%, rgba(26, 21, 16, 0.95) 100%), url('hero-mobile.jpg');
+                background-position: center 25%;
+            }
+
+            .hero {
+                min-height: 100vh;
+                align-items: flex-end;
+                padding-bottom: 48px;
+            }
+
+            .hero-eyebrow {
+                font-size: 9px;
+                letter-spacing: 3px;
+                gap: 10px;
+                margin-bottom: 22px;
+            }
+
+            .hero-eyebrow::before,
+            .hero-eyebrow::after {
+                width: 22px;
+            }
+
+            .hero-subtitle {
+                margin-bottom: 36px;
+                padding: 0 12px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-title {
+                font-size: 52px;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="#" class="nav-logo"><img src="logo.png" alt="Lashmama™"
+                style="height:32px;width:auto;display:block;"></a>
+        <ul class="nav-links">
+            <li><a href="#about">Studio</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="https://www.fresha.com/en-GB/a/lash-mama-tm-australia-lash-extensions-mawson-lakes-5-heron-walk-emini6s0"
+                    target="_blank" rel="noopener" class="nav-book-btn">Book Now</a></li>
+        </ul>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-menu-links">
+            <li><a href="#about" class="mobile-menu-link">Studio</a></li>
+            <li><a href="#services" class="mobile-menu-link">Services</a></li>
+            <li><a href="#gallery" class="mobile-menu-link">Gallery</a></li>
+            <li><a href="#shop" class="mobile-menu-link">Shop</a></li>
+        </ul>
+        <div class="mobile-menu-divider"></div>
+        <a href="https://www.fresha.com/en-GB/a/lash-mama-tm-australia-lash-extensions-mawson-lakes-5-heron-walk-emini6s0"
+            target="_blank" rel="noopener" class="mobile-menu-book">Book Now</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-eyebrow">Premium Lash Salon &amp; Academy</div>
+            <h1 class="hero-title">
+                Lash Artistry,<br><em>Perfected</em>
+            </h1>
+            <p class="hero-subtitle">Award-Winning Lashes, Hair &amp; Makeup</p>
+            <div class="hero-ctas">
+                <a href="https://www.fresha.com/en-GB/a/lash-mama-tm-australia-lash-extensions-mawson-lakes-5-heron-walk-emini6s0"
+                    target="_blank" rel="noopener" class="btn-primary">Book Your Appointment</a>
+                <a href="#services" class="btn-ghost">Explore Services</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-wrap" aria-hidden="true">
+        <div class="marquee-track">
+            <div class="marquee-item">Mega Volume Lashes <div class="marquee-dot"></div> Natural Hybrid Sets <div
+                    class="marquee-dot"></div> Volume Refills <div class="marquee-dot"></div> Luxury Experience <div
+                    class="marquee-dot"></div> Mawson Lakes Studio <div class="marquee-dot"></div> Book Online <div
+                    class="marquee-dot"></div>
+            </div>
+            <div class="marquee-item">Mega Volume Lashes <div class="marquee-dot"></div> Natural Hybrid Sets <div
+                    class="marquee-dot"></div> Volume Refills <div class="marquee-dot"></div> Luxury Experience <div
+                    class="marquee-dot"></div> Mawson Lakes Studio <div class="marquee-dot"></div> Book Online <div
+                    class="marquee-dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="about-inner">
+            <div class="about-image">
+                <div class="about-img-frame">
+                    <img src="purni.jpg" alt="Purni, Lashmama™ Founder" loading="lazy">
+                </div>
+                <div class="about-accent">
+                    <div class="about-accent-text">20+ Years<br>in<br>Beauty</div>
+                </div>
+            </div>
+            <div class="about-text">
+                <div class="section-eyebrow">The Artist Behind the Studio</div>
+                <h2 class="section-title">Crafted with<br><em>Precision</em> &amp;<br>Passion</h2>
+                <p class="section-body">Purni Ranasinha is an internationally awarded Master Lash Artist and the founder
+                    of Lashmama™, a premium lash salon and academy also celebrated for award-winning hair and makeup
+                    artistry. Her journey began at 16 as a beauty pageant winner and television personality, before
+                    travelling the world as Qatar Airways cabin crew. Today she is a multi-award-winning educator,
+                    having completed more than 200 wedding transformations and trained lash, hair and makeup artists
+                    across Adelaide and Melbourne.</p>
+                <div class="about-stats">
+                    <div class="about-stat">
+                        <div class="about-stat-num">20+</div>
+                        <div class="about-stat-label">Years in beauty</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-num">150+</div>
+                        <div class="about-stat-label">Loyal clients</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-num">100%</div>
+                        <div class="about-stat-label">Premium materials</div>
+                    </div>
+                    <a href="https://share.google/4vkgkjLPKBDin5yjV" target="_blank" rel="noopener"
+                        class="about-stat about-stat-google">
+                        <svg class="about-stat-google-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#4285F4"
+                                d="M23.52 12.27c0-.85-.08-1.67-.22-2.45H12v4.64h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.57-5.17 3.57-8.82z" />
+                            <path fill="#34A853"
+                                d="M12 24c3.24 0 5.96-1.07 7.95-2.91l-3.88-3c-1.08.72-2.45 1.15-4.07 1.15-3.13 0-5.78-2.11-6.73-4.96H1.27v3.11A12 12 0 0 0 12 24z" />
+                            <path fill="#FBBC05"
+                                d="M5.27 14.28A7.2 7.2 0 0 1 4.89 12c0-.79.14-1.56.38-2.28V6.61H1.27A12 12 0 0 0 0 12c0 1.94.46 3.78 1.27 5.39l4-3.11z" />
+                            <path fill="#EA4335"
+                                d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.44-3.44C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.69 1.27 6.61l4 3.11C6.22 6.86 8.87 4.75 12 4.75z" />
+                        </svg>
+                        <div class="about-stat-label">5-Star Rated</div>
+                        <div class="about-stat-google-arrow">View on Google →</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <div class="services-inner">
+            <div class="services-header">
+                <div>
+                    <div class="section-eyebrow">Lashes, Hair &amp; Makeup</div>
+                    <h2 class="section-title">Our <em>Signature</em><br>Services</h2>
+                </div>
+                <a href="https://www.fresha.com/en-GB/a/lash-mama-tm-australia-lash-extensions-mawson-lakes-5-heron-walk-emini6s0"
+                    target="_blank" rel="noopener" class="btn-primary" style="white-space:nowrap">Book a Service</a>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img"><img src="service-mega-volume.jpg" alt="Mega Volume Full Set"
+                            loading="lazy"></div>
+                    <div class="service-card-body">
+                        <div class="service-num">01</div>
+                        <div class="service-name">Mega Volume<br>Full Set</div>
+                        <p class="service-desc">Our most dramatic and luxurious set, crafted with 8D pre-made fans for
+                            maximum fullness and impact.</p>
+                        <div class="service-price">$75 - $250</div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img"><img src="service-volume.jpg" alt="Volume Full Set" loading="lazy"></div>
+                    <div class="service-card-body">
+                        <div class="service-num">02</div>
+                        <div class="service-name">Volume<br>Full Set</div>
+                        <p class="service-desc">Fluffy, full and beautiful, finished with 5D fans for a classic volume
+                            look that speaks for itself.</p>
+                        <div class="service-price">$65 - $230</div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img"><img src="service-natural-hybrid.jpg" alt="Natural Hybrid Full Set"
+                            loading="lazy"></div>
+                    <div class="service-card-body">
+                        <div class="service-num">03</div>
+                        <div class="service-name">Natural Hybrid<br>Full Set</div>
+                        <p class="service-desc">Soft, wispy perfection using 3D fans for a natural, glamorous look that
+                            enhances your eye shape.</p>
+                        <div class="service-price">$55 - $220</div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img"><img src="service-removal.jpg" alt="Lash Removal" loading="lazy"></div>
+                    <div class="service-card-body">
+                        <div class="service-num">04</div>
+                        <div class="service-name">Lash<br>Removal</div>
+                        <p class="service-desc">Safe, gentle professional removal with a full lash health assessment and
+                            expert care.</p>
+                        <div class="service-price">$40 - $50</div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img"><img src="service-hair.jpg" alt="Hair Styling" loading="lazy"></div>
+                    <div class="service-card-body">
+                        <div class="service-num">05</div>
+                        <div class="service-name">Hair<br>Styling</div>
+                        <p class="service-desc">ABIA award-winning hair styling, elevating your look from root to tip
+                            for any occasion.</p>
+                        <div class="service-price">From $120</div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img"><img src="service-makeup.jpg" alt="Makeup Application" loading="lazy">
+                    </div>
+                    <div class="service-card-body">
+                        <div class="service-num">06</div>
+                        <div class="service-name">Makeup<br>Application</div>
+                        <p class="service-desc">ABIA award-winning makeup artistry, flawless and photo-ready for any
+                            occasion, big or small.</p>
+                        <div class="service-price">From $120</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery" id="gallery">
+        <div class="gallery-header">
+            <div class="section-eyebrow">Our Work</div>
+            <h2 class="section-title">A Study in <em>Perfection</em></h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="gallery-1.jpg" alt="Lashmama lash work" loading="lazy">
+                <div class="gallery-overlay"><span class="gallery-overlay-text">Lashmama™ Academy</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery-2.jpg" alt="Lashmama lash work" loading="lazy">
+                <div class="gallery-overlay"><span class="gallery-overlay-text">Mega Volume Set</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery-3.jpg" alt="Lashmama lash work" loading="lazy">
+                <div class="gallery-overlay"><span class="gallery-overlay-text">Mega Volume Set</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery-4.jpg" alt="Lashmama lash work" loading="lazy">
+                <div class="gallery-overlay"><span class="gallery-overlay-text">Volume Set</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery-5.jpg" alt="Lashmama lash work" loading="lazy">
+                <div class="gallery-overlay"><span class="gallery-overlay-text">Before &amp; After (Hybrid Set)</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery-6.jpg" alt="Lashmama lash work" loading="lazy">
+                <div class="gallery-overlay"><span class="gallery-overlay-text">UK Beauty Judge</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery-7.jpg" alt="Lashmama lash work" loading="lazy">
+                <div class="gallery-overlay"><span class="gallery-overlay-text">Lashmama™ Seminar</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOP -->
+    <section class="shop" id="shop">
+        <div class="shop-inner">
+            <div class="shop-header">
+                <div>
+                    <div class="section-eyebrow">Lash Mama Boutique</div>
+                    <h2 class="section-title">Shop Premium<br><em>Essentials</em></h2>
+                </div>
+                <a href="https://db5421-f1.myshopify.com/" target="_blank" rel="noopener" class="shop-link-all">View All
+                    Products</a>
+            </div>
+            <div class="shop-grid">
+                <a href="https://db5421-f1.myshopify.com/" target="_blank" rel="noopener" class="shop-card">
+                    <div class="shop-img">
+                        <img src="product-lip-gloss.jpg" alt="Lashmama Ultimate Stay-On Lip Gloss" loading="lazy">
+                    </div>
+                    <div class="shop-info">
+                        <div class="shop-tag">Lips</div>
+                        <div class="shop-name">Lashmama™ Ultimate Stay-On Lip Gloss</div>
+                        <div class="shop-price">$45</div>
+                    </div>
+                </a>
+                <a href="https://db5421-f1.myshopify.com/" target="_blank" rel="noopener" class="shop-card">
+                    <div class="shop-img">
+                        <img src="product-adhesive.jpg" alt="Lashmama Platinum Pro Lash Adhesive" loading="lazy">
+                    </div>
+                    <div class="shop-info">
+                        <div class="shop-tag">Adhesive</div>
+                        <div class="shop-name">Lashmama™ Platinum Pro Lash Adhesive</div>
+                        <div class="shop-price">$70</div>
+                    </div>
+                </a>
+                <a href="https://db5421-f1.myshopify.com/" target="_blank" rel="noopener" class="shop-card">
+                    <div class="shop-img">
+                        <img src="product-makeup.jpg" alt="Lashmama Gold-Rhine-Stone Matte Lipstick" loading="lazy">
+                    </div>
+                    <div class="shop-info">
+                        <div class="shop-tag">Makeup</div>
+                        <div class="shop-name">Lashmama™ Gold-Rhine-Stone Matte Lipstick</div>
+                        <div class="shop-price">$35</div>
+                    </div>
+                </a>
+                <a href="https://db5421-f1.myshopify.com/" target="_blank" rel="noopener" class="shop-card">
+                    <div class="shop-img">
+                        <img src="product-lashes.jpg" alt="Lashmama Short Stem Premade Fans" loading="lazy">
+                    </div>
+                    <div class="shop-info">
+                        <div class="shop-tag">Lashes</div>
+                        <div class="shop-name">Lashmama™ Short Stem Premade Fans</div>
+                        <div class="shop-price">$20 - $22</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="testimonials-inner">
+            <div class="testimonials-header">
+                <div class="section-eyebrow">Client Love</div>
+                <h2 class="section-title">What Our Clients <em>Say</em></h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Purni does not only provide an excellent service and the highest quality
+                        of products, she is deeply devoted to caring for your lashes. I have been going to her for 8
+                        years and I refuse to let anyone else go near my eyes.</p>
+                    <div class="testimonial-stars">★★★★★</div>
+                    <div class="testimonial-name">Kayla Howlett</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Purni has been doing my lashes for 9 years. I have only ever been to her
+                        and have never let anyone else touch them. She does fantastic work and the retention is amazing.
+                    </p>
+                    <div class="testimonial-stars">★★★★★</div>
+                    <div class="testimonial-name">Elise Rosser</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Honestly the best lashes and service. Purni is extremely educated and
+                        talented when it comes to lashes, and she also has an amazing makeup range. Purni makes you feel
+                        very beautiful.</p>
+                    <div class="testimonial-stars">★★★★★</div>
+                    <div class="testimonial-name">Nina Tanner</div>
+                </div>
+            </div>
+            <div class="testimonials-more">
+                <a href="https://share.google/4vkgkjLPKBDin5yjV" target="_blank" rel="noopener"
+                    class="testimonials-more-link">
+                    <svg class="testimonials-more-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#4285F4"
+                            d="M23.52 12.27c0-.85-.08-1.67-.22-2.45H12v4.64h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.57-5.17 3.57-8.82z" />
+                        <path fill="#34A853"
+                            d="M12 24c3.24 0 5.96-1.07 7.95-2.91l-3.88-3c-1.08.72-2.45 1.15-4.07 1.15-3.13 0-5.78-2.11-6.73-4.96H1.27v3.11A12 12 0 0 0 12 24z" />
+                        <path fill="#FBBC05"
+                            d="M5.27 14.28A7.2 7.2 0 0 1 4.89 12c0-.79.14-1.56.38-2.28V6.61H1.27A12 12 0 0 0 0 12c0 1.94.46 3.78 1.27 5.39l4-3.11z" />
+                        <path fill="#EA4335"
+                            d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.44-3.44C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.69 1.27 6.61l4 3.11C6.22 6.86 8.87 4.75 12 4.75z" />
+                    </svg>
+                    <span>Read More Reviews on Google</span>
+                    <span class="testimonials-more-arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOKING CTA -->
+    <section class="booking-cta">
+        <div class="booking-cta-inner">
+            <div class="section-eyebrow">Ready to Transform</div>
+            <h2 class="booking-cta-title">Book Your<br><em>Appointment</em><br>Today</h2>
+            <p class="booking-cta-sub">Experience the Lashmama™ difference, where every detail is perfected and every
+                lash placed with intention.</p>
+            <div class="hero-ctas">
+                <a href="https://www.fresha.com/en-GB/a/lash-mama-tm-australia-lash-extensions-mawson-lakes-5-heron-walk-emini6s0"
+                    target="_blank" rel="noopener" class="btn-primary">Book Now</a>
+                <a href="https://www.google.com/search?sca_esv=d0bb7ae496a9202e&hl=en-AU&sxsrf=APpeQnvTcZpg7LUnE89NOwNXgmj9ZwlquQ:1782790984480&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_yJI7qYcBXEkB6KwIV7hA2vLsNakpMFHpB-1ZDi_C3YnyrYLCw3t5s5kjcHb6OdyI6_5nJEb8ddtQIoOk8ViJCSj2KAH-VuHFqKSa9FiHFIp_7XM1w%3D%3D&q=Lash+Mama+Australia+Reviews&sa=X&ved=2ahUKEwipr9r6ha6VAxXwTGcHHRJIH2MQ0bkNegQIJxAI&biw=2133&bih=1012&dpr=0.9"
+                    target="_blank" rel="noopener" class="btn-ghost">Leave a Review</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div>
+                    <img src="logo.png" alt="Lashmama™"
+                        style="height:36px;width:auto;display:block;margin-bottom:16px;">
+                    <p class="footer-tagline">Premium lash salon &amp; academy.<br>Lashes, hair &amp; makeup, perfected.
+                    </p>
+                    <div class="footer-address">Mawson Lakes Studio · SA · 5095<br>South Australia</div>
+                    <div class="footer-socials">
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/lash_mama_au/?hl=en" target="_blank" rel="noopener"
+                            class="footer-social" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/adelaidelashes" target="_blank" rel="noopener"
+                            class="footer-social" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/lash-mama%E2%84%A2%EF%B8%8F-purni-097b69254/"
+                            target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                        <!-- Google -->
+                        <a href="https://share.google/4vkgkjLPKBDin5yjV" target="_blank" rel="noopener"
+                            class="footer-social" aria-label="Google Reviews">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <div class="footer-col-title">Services</div>
+                    <ul class="footer-links">
+                        <li><a href="https://www.fresha.com/en-GB/a/lash-mama-tm-australia-lash-extensions-mawson-lakes-5-heron-walk-emini6s0"
+                                target="_blank" rel="noopener">Mega Volume Full Set</a></li>
+                        <li><a href="https://www.fresha.com/en-GB/a/lash-mama-tm-australia-lash-extensions-mawson-lakes-5-heron-walk-emini6s0"
+                                target="_blank" rel="noopener">Volume Full Set</a></li>
+                        <li><a href="https://www.fresha.com/en-GB/a/lash-mama-tm-australia-lash-extensions-mawson-lakes-5-heron-walk-emini6s0"
+                                target="_blank" rel="noopener">Natural Hybrid Full Set</a></li>
+                        <li><a href="https://www.fresha.com/en-GB/a/lash-mama-tm-australia-lash-extensions-mawson-lakes-5-heron-walk-emini6s0"
+                                target="_blank" rel="noopener">Hair &amp; Makeup</a></li>
+                        <li><a href="https://www.fresha.com/en-GB/a/lash-mama-tm-australia-lash-extensions-mawson-lakes-5-heron-walk-emini6s0"
+                                target="_blank" rel="noopener">Lash Removal</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-col-title">Studio</div>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Purni</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="https://www.google.com/maps?q=5+Heron+Walk+Mawson+Lakes+SA+5095" target="_blank"
+                                rel="noopener">Find Us</a></li>
+                        <li><a href="https://share.google/4vkgkjLPKBDin5yjV" target="_blank" rel="noopener">Reviews</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-col-title">Connect</div>
+                    <ul class="footer-links">
+                        <li><a href="https://www.fresha.com/en-GB/a/lash-mama-tm-australia-lash-extensions-mawson-lakes-5-heron-walk-emini6s0"
+                                target="_blank" rel="noopener">Book Online</a></li>
+                        <li><a href="https://db5421-f1.myshopify.com/" target="_blank" rel="noopener">Online Shop</a>
+                        </li>
+                        <li><a href="https://www.instagram.com/lash_mama_au/?hl=en" target="_blank"
+                                rel="noopener">Instagram</a></li>
+                        <li><a href="https://www.facebook.com/adelaidelashes" target="_blank"
+                                rel="noopener">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-gold-line"></div>
+                <p class="footer-copy">© 2026 Lashmama™ · Mawson Lakes Studio · All rights reserved</p>
+                <div class="footer-gold-line"></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger / mobile menu
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        function closeMobileMenu() {
+            hamburgerBtn.classList.remove('open');
+            mobileMenu.classList.remove('open');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('menu-locked');
+        }
+        hamburgerBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('open');
+            hamburgerBtn.classList.toggle('open', isOpen);
+            hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
+            document.body.classList.toggle('menu-locked', isOpen);
+        });
+        document.querySelectorAll('.mobile-menu-link').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Nav scroll effect + hide on scroll down, show on scroll up
+        const nav = document.querySelector('nav');
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > 60) {
+                nav.style.padding = '14px 48px';
+                nav.style.boxShadow = '0 4px 40px rgba(26,21,16,0.08)';
+            } else {
+                nav.style.padding = '20px 48px';
+                nav.style.boxShadow = 'none';
+            }
+
+            if (!mobileMenu.classList.contains('open')) {
+                if (currentScrollY > lastScrollY && currentScrollY > 160) {
+                    nav.classList.add('nav-hidden');
+                } else {
+                    nav.classList.remove('nav-hidden');
+                }
+            }
+
+            lastScrollY = currentScrollY;
+        }, { passive: true });
+
+        // Smooth reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.service-card, .shop-card, .testimonial-card, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(24px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
