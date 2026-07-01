@@ -611,6 +611,7 @@
     margin: 1px 20px 32px;
     gap: 12px;
     padding: 16px 14px;
+    flex-wrap: wrap;
 }
 
 .booking-modal-app-icon {
@@ -633,6 +634,22 @@
     padding: 4px 7px;
     letter-spacing: 1px;
     flex-shrink: 0;
+}
+
+.booking-modal-app-preview {
+    width: 100%;
+    margin-top: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(201, 168, 113, 0.2);
+    flex-basis: 100%;
+}
+
+.booking-modal-app-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
 }
 
             .booking-modal-row-value {
@@ -1892,11 +1909,14 @@
                             d="M17 2H7C5.9 2 5 2.9 5 4v16c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H7V4h10v12zm-5 4c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z" />
                     </svg>
                 </div>
-                <div class="booking-modal-app-text">
-                    <div class="booking-modal-app-title">Lash Mama™ App</div>
-                    <div class="booking-modal-app-sub">iOS &amp; Android · Full booking system</div>
+<div class="booking-modal-app-text">
+    <div class="booking-modal-app-title">Lash Mama™ App</div>
+    <div class="booking-modal-app-sub">iOS &amp; Android · Full booking system</div>
+</div>
+<div class="booking-modal-app-badge">Coming Soon</div>
+                <div class="booking-modal-app-preview">
+                    <img src="appStore.png" alt="Lash Mama™ App Preview" loading="lazy">
                 </div>
-                <div class="booking-modal-app-badge">Coming Soon</div>
             </div>
         </div>
     </div>
