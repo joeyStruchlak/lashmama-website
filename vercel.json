@@ -1,6 +1,9 @@
 {
   "redirects": [
-    { "source": "/brand-ambassador-program", "destination": "/", "statusCode": 301 },
-    { "source": "/about-us", "destination": "/", "statusCode": 301 }
+    {
+      "source": "/(.*)",
+      "destination": "/",
+      "statusCode": 301
+    }
   ]
 }
