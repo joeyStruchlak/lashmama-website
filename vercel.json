@@ -1,9 +1,10 @@
 {
   "redirects": [
-    {
-      "source": "/(.*)",
-      "destination": "/",
-      "statusCode": 301
-    }
+    { "source": "/about-us", "destination": "/", "statusCode": 301 },
+    { "source": "/work-gallery", "destination": "/", "statusCode": 301 },
+    { "source": "/adelaide-course-reviews", "destination": "/", "statusCode": 301 },
+    { "source": "/brand-ambassador-program", "destination": "/", "statusCode": 301 },
+    { "source": "/review-gallery", "destination": "/", "statusCode": 301 },
+    { "source": "/eyelash-extensions-consent-form", "destination": "/", "statusCode": 301 }
   ]
 }
