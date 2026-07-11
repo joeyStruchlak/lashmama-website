@@ -5,6 +5,18 @@
     { "source": "/adelaide-course-reviews", "destination": "/", "statusCode": 301 },
     { "source": "/brand-ambassador-program", "destination": "/", "statusCode": 301 },
     { "source": "/review-gallery", "destination": "/", "statusCode": 301 },
-    { "source": "/eyelash-extensions-consent-form", "destination": "/", "statusCode": 301 }
+    { "source": "/eyelash-extensions-consent-form", "destination": "/", "statusCode": 301 },
+    { "source": "/eyelash-extensions-consent-agreement-form", "destination": "/", "statusCode": 301 },
+    {
+      "has": [
+        {
+          "type": "host",
+          "value": "lashcourse.lashmama.com.au"
+        }
+      ],
+      "source": "/(.*)",
+      "destination": "https://www.lashmama.com.au/",
+      "statusCode": 301
+    }
   ]
 }
