@@ -1,4 +1,7 @@
 {
+  "rewrites": [
+    { "source": "/reset-password", "destination": "/reset-password.html" }
+  ],
   "redirects": [
     { "source": "/about-us", "destination": "/", "statusCode": 301 },
     { "source": "/work-gallery", "destination": "/", "statusCode": 301 },
