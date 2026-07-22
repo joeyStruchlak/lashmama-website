@@ -1,6 +1,17 @@
 {
   "rewrites": [
-    { "source": "/reset-password", "destination": "/reset-password.html" }
+    {
+      "source": "/reset-password",
+      "destination": "/reset-password.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy.html"
+    }
   ],
   "redirects": [
     { "source": "/about-us", "destination": "/", "statusCode": 301 },
